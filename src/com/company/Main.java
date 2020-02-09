@@ -2,26 +2,21 @@ package com.company;
 
 public class Main {
     public static void main(String[] args) {
-        useLambda(new JawnaImplementacja());
-        useLambda(() -> System.out.println("Jawna Implementacja"));
-
+        JawnaImplementacja implementacja = new JawnaImplementacja();
+        useLambdaWithParam(implementacja, "String do wyswietlenia");
+        useLambdaWithParam((s)-> System.out.println(s), "String do wyswietlenia");
     }
-    static void useLambda(MojFunkcyjnyInterfejs myInterface){
-        myInterface.go();
-
+    static void useLambdaWithParam(MojFunkcyjnyInterfejs interfejs, String s) {
+        interfejs.go(s);
     }
 }
-    @FunctionalInterface
+@FunctionalInterface
 interface MojFunkcyjnyInterfejs {
-    void go();
-
-
+    void go(String s);
 }
-    class JawnaImplementacja implements MojFunkcyjnyInterfejs{
-
-
-        @Override
-        public void go() {
-            System.out.println("Jawna Implementacja");
-        }
+class JawnaImplementacja implements MojFunkcyjnyInterfejs {
+    @Override
+    public void go(String s) {
+        System.out.println(s);
     }
+}
