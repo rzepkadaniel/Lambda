@@ -33,7 +33,21 @@ public class Filtrowanie {
                 .sorted()
                 .forEach(s -> System.out.println(s.toUpperCase()));
 
-
+// rozwiazanie Lukasza
+        /*final Predicate<String> vowelAtTheBeginningPredicate = s -> {
+            char ch = s.toLowerCase().charAt(0);
+            return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+        };
+        List<String> peoplesNames = people
+                .stream()
+                .map(person -> person.name + " " + person.lastName)
+                .filter(vowelAtTheBeginningPredicate.negate())
+                .map(String::toUpperCase)
+                .sorted()
+                .collect(Collectors.toCollection(ArrayList::new));
+        peoplesNames.forEach(System.out::println);
+        
+         */
 
 
 
